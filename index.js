@@ -1,5 +1,5 @@
 console.clear();
-
+// <-- Nav Bar Button Action Start Here -->
 document.getElementById('donationBtn').addEventListener('click', function () {
         document.getElementById('donationBtn').classList.add('pr-btn');
         document.getElementById('historyBtn').classList.remove('pr-btn');
@@ -16,11 +16,9 @@ document.getElementById('historyBtn').addEventListener('click', function () {
     document.getElementById('injured').classList.add('hidden');
     document.getElementById('historyContainer').classList.remove('hidden');
 })
+// <-- Nav Bar Button Action End Here -->
 
-
-
-
-
+// <-- Noakhali Donate Button Action Start Here -->
 document.getElementById('donateBtnNoakhali').addEventListener('click', function (event) {
     event.preventDefault();
 
@@ -28,12 +26,19 @@ document.getElementById('donateBtnNoakhali').addEventListener('click', function 
     const donate = getInputValueById('inputAmount')
     const totalDonation = getInnerTextById('totalDonation');
     if (donate > 0 && balance >= donate) {
+        // <--- Balance Calculation --->
         const updateBalance = balance - donate;
         const updateTotalDonation = totalDonation + donate;
         document.getElementById('totalDonation').innerText = updateTotalDonation;
         document.getElementById('accountBalance').innerText = updateBalance;
 
-        // Add To TransAction History
+        // <--- Modal --->
+        const donateModal = document.getElementById('modal');
+        donateModal.classList.remove('hidden');
+        document.getElementById('cModal').addEventListener('click', function () {
+        donateModal.classList.add('hidden');
+        });
+        // <-----Add To TransAction History----->
         let currentTime = new Date();
         const div = document.createElement('div');
         div.classList.add('bg-green-300', 'p-5','m-5');
@@ -46,7 +51,7 @@ document.getElementById('donateBtnNoakhali').addEventListener('click', function 
         alert("Invalid Donation Amount");
     }
 })
-
+// <-- Feni Donate Button Action Start Here -->
 document.getElementById('donateBtnFeni').addEventListener('click', function (event) {
     event.preventDefault();
 
@@ -54,11 +59,18 @@ document.getElementById('donateBtnFeni').addEventListener('click', function (eve
     const donate = getInputValueById('inputAmountF')
     const totalDonation = getInnerTextById('totalDonationF');
     if (donate > 0 && balance >= donate) {
+        // <--- Balance Calculation --->
         const updateBalance = balance - donate;
         const updateTotalDonation = totalDonation + donate;
         document.getElementById('totalDonationF').innerText = updateTotalDonation;
         document.getElementById('accountBalance').innerText = updateBalance;
 
+        // <--- Modal --->
+        const donateModal = document.getElementById('modal');
+        donateModal.classList.remove('hidden');
+        document.getElementById('cModal').addEventListener('click', function () {
+        donateModal.classList.add('hidden');
+        });
         // Add To TransAction History
         let currentTime = new Date();
         const div = document.createElement('div');
@@ -72,7 +84,7 @@ document.getElementById('donateBtnFeni').addEventListener('click', function (eve
         alert("Invalid Donation Amount");
     }
 })
-
+// <-- Injured Donate Button Action Start Here -->
 document.getElementById('donateBtnInjured').addEventListener('click', function (event) {
     event.preventDefault();
 
@@ -80,11 +92,18 @@ document.getElementById('donateBtnInjured').addEventListener('click', function (
     const donate = getInputValueById('inputAmountI')
     const totalDonation = getInnerTextById('totalDonationI');
     if (donate > 0 && balance >= donate) {
+        // <--- Balance Calculation --->
         const updateBalance = balance - donate;
         const updateTotalDonation = totalDonation + donate;
         document.getElementById('totalDonationI').innerText = updateTotalDonation;
         document.getElementById('accountBalance').innerText = updateBalance;
 
+        // <--- Modal --->
+        const donateModal = document.getElementById('modal');
+        donateModal.classList.remove('hidden');
+        document.getElementById('cModal').addEventListener('click', function () {
+        donateModal.classList.add('hidden');
+        });
         // Add To TransAction History
         let currentTime = new Date();
         const div = document.createElement('div');
